@@ -40,6 +40,17 @@ You can create a `responses.json` in the same folder with exact question labels 
 ```
 
 ## Usage
+
+create a .env file with the entries
+```js
+SENDER_EMAIL = <sender_email>
+APP_PASSWORD = <google_app_password>
+RECEIVERS = <receiver1>,<receiver2> // comma separated
+CC = <cc_email1>,<cc_email2> // cc emails comma separated
+YOUR_NAME = <your_name> 
+```
+
+
 Run the script:
 ```bash
 python your_script.py
