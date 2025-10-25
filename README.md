@@ -1,65 +1,64 @@
-# Google Form Auto-Filler (Selenium) — README
+# 🧠 Google Form Auto-Filler (Selenium + Flask)
 
-Short script to auto-fill a Google Form, capture a confirmation screenshot, and email the result. Uses Faker for realistic values and webdriver-manager to manage ChromeDriver.
+A Python automation tool with a simple Flask web interface that automatically fills out Google Forms using realistic fake data, captures a confirmation screenshot, and emails the result.
 
-## Features
-- Auto-detects form questions and fills sensible fake answers
-- Handles text, email, phone, date, textarea, radio, dropdowns
-- Attempts to extract short captcha-like codes shown in the form
-- Saves a confirmation screenshot (confirmation.png)
-- Sends an email with the screenshot and optional attachments
+This project combines **Selenium**, **Faker**, and **Flask** to demonstrate browser automation, data generation, and email sending — all in one clean web interface.
 
-## Requirements
-- Python 3.8+
-- Google Chrome installed
-- pip packages:
-    - selenium
-    - webdriver-manager
-    - faker
+---
 
-Install dependencies:
+## 🚀 Features
+
+- 🧾 Automatically fills Google Form fields (text, email, phone, date, textarea, radio, dropdowns)
+- 🧠 Generates realistic fake answers using [Faker](https://faker.readthedocs.io/)
+- 📸 Captures a confirmation screenshot (`confirmation.png`)
+- 📧 Sends an email with the screenshot attached
+- 🖥️ Simple Flask-based web interface
+- 🔐 Uses `.env` configuration for secure credentials
+
+---
+
+## 🧰 Requirements
+
+- **Python 3.8+**
+- **Google Chrome** installed
+- Install required packages:
+
 ```bash
-pip install selenium webdriver-manager faker
-```
-
-## Configuration
-Edit the top of the script to set:
-- FORM_URL — URL of the Google Form
-- SCREENSHOT, RESPONSES_FILE — output filenames
-- SENDER_EMAIL, APP_PASSWORD — sender Gmail and app-specific password (do not use your main password; create a Gmail App Password)
-- RECEIVERS, CC, YOUR_NAME — email recipients and sender name
-
-Tip: for security, prefer reading the password from an environment variable instead of hardcoding.
-
-You can create a `responses.json` in the same folder with exact question labels mapped to values to override auto-generated answers:
-```json
-{
-    "Full name": "Frank Ndagula",
-    "Email address": "frank@example.com"
-}
+  pip install selenium webdriver-manager faker flask python-dotenv
 ```
 
 ## Usage
 
 create a .env file with the entries
+
 ```js
 FORM_URL = "https://forms.gle/WT68aV5UnPajeoSc8"
 SENDER_EMAIL = <sender_email>
 APP_PASSWORD = <google_app_password>
 RECEIVERS = <receiver1>,<receiver2> // comma separated
 CC = <cc_email1>,<cc_email2> // cc emails comma separated
-YOUR_NAME = <your_name> 
+YOUR_NAME = <your_name>
+GITHUB_LINK = <Github_link>
+PORTFOLIO_LINK = <Portfolio_link> 
 ```
 
 
-Run the script:
+Run the app:
 ```bash
-python your_script.py
+python app.py
 ```
-The script will:
-1. Launch Chrome and fill the form
-2. Submit and save a screenshot as `confirmation.png`
-3. Send an email with the screenshot attached
+The app will:
+
+1. Open at port 5000.
+
+2. Click on the send email link which will run an automation script which will: 
+
+
+    i. Launch Chrome and fill the form.
+
+    ii. Submit and save a screenshot as `confirmation.png`
+    
+    iii. Send an email with the screenshot attached
 
 ## Notes & Troubleshooting
 - If running headless, uncomment the `--headless` option in ChromeOptions.
