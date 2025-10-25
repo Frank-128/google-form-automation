@@ -43,6 +43,7 @@ You can create a `responses.json` in the same folder with exact question labels 
 
 create a .env file with the entries
 ```js
+FORM_URL = "https://forms.gle/WT68aV5UnPajeoSc8"
 SENDER_EMAIL = <sender_email>
 APP_PASSWORD = <google_app_password>
 RECEIVERS = <receiver1>,<receiver2> // comma separated
